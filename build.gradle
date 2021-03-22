@@ -1,12 +1,18 @@
 plugins {
-    id 'org.springframework.boot' version '2.4.4'
-    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'org.springframework.boot' version '2.3.1.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
     id 'java'
 }
 
-group = 'com.example'
+group = 'com.codegym'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
 
 repositories {
     mavenCentral()
@@ -20,7 +26,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     compile ("org.springframework.boot:spring-boot-starter-actuator")
     compileOnly 'org.projectlombok:lombok'
-//    runtimeOnly 'dev.miku:r2dbc-mysql'
+    runtimeOnly 'dev.miku:r2dbc-mysql'
     runtimeOnly 'mysql:mysql-connector-java'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
